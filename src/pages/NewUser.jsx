@@ -1,0 +1,80 @@
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import LoginCaption from '../utils/login/loginCaption';
+import { Button, Link, TextField } from '@material-ui/core';
+import { useHistory } from 'react-router';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}));
+export default function NewUser() {
+  const classes = useStyles();
+  const history = useHistory();
+  function openNewCompany(){
+    history.push("/newCompany")
+  }
+  return (
+    <div className={classes.root}>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <LoginCaption />
+        </Grid>
+      </Grid>
+      <center>
+      <Grid container spacing={3} xs={8}>
+        <Grid item xs={12}>
+        <TextField  variant="outlined"  margin="normal"  required  fullWidth
+            id="Username"
+            label="Username"
+            name="username"
+            autoFocus
+          />
+          <TextField  variant="outlined"  margin="normal"  required  fullWidth
+            id="password"
+            label="Enter your password."
+            name="password"
+            type="password"
+          />
+          <TextField  variant="outlined"  margin="normal"  required  fullWidth
+            id="password"
+            label="Rewrite your password again."
+            name="password"
+            type="password"
+          />
+          <TextField  variant="outlined"  margin="normal"  required  fullWidth
+            id="Email"
+            label="Email"
+            name="Email"
+            type="Email"
+          />
+          
+          <TextField  variant="outlined"  margin="normal"  required  fullWidth
+            id="Email"
+            label="Rewrite your Email"
+            name="Email"
+            type="Email"
+          />
+           <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+             >
+            Giriş
+          </Button>
+        </Grid>
+
+      </Grid>
+      </center>
+    </div>
+  );
+}
